@@ -1,0 +1,29 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid teal;
+  color: teal;
+  font-weight: bold;
+}
+button:hover {
+  background-color: teal;
+  color: white;
+}
