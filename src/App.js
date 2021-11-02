@@ -13,15 +13,16 @@ class App extends Component {
   };
 
   formSubmitHandler = (data) => {
-    if (this.state.contacts.some((item) => item.name === data.name)) {
-      alert("Can't add the same name twice");
+    if (
+      this.state.contacts.some(
+        (item) => item.name.toLowerCase() === data.name.toLowerCase()
+      )
+    ) {
+      alert(`${data.name} is already in your contacts`);
       return;
     }
     this.setState((prevState) => ({
-      contacts: [
-        ...prevState.contacts,
-        { id: v4(), name: data.name, number: data.number },
-      ],
+      contacts: [...prevState.contacts, { id: v4(), ...data }],
     }));
   };
 
@@ -37,10 +38,9 @@ class App extends Component {
     );
   };
 
-  delete = (e) => {
-    let idToDelete = e.target.closest("li").id;
+  delete = (id) => {
     this.setState({
-      contacts: this.state.contacts.filter((item) => item.id !== idToDelete),
+      contacts: this.state.contacts.filter((item) => item.id !== id),
     });
   };
 
